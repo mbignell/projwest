@@ -267,7 +267,7 @@ table {
 .grid-p-23 {
   margin-left: calc(23/24 * 100vw - 10px); }
 
-@media screen and (max-width: 1180px) {
+@media screen and (max-width: 1200px) {
   .hide-on-tablet {
     display: none; } }
 
@@ -480,7 +480,8 @@ header .logo {
   position: absolute;
   bottom: -4px;
   left: -4px;
-  background: white; }
+  background: white;
+  display: none; }
 
 .content {
   width: calc(100% - 236px);

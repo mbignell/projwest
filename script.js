@@ -17,34 +17,39 @@ $( window ).resize(function() {
     }
 });
 
-// TODO
-// get attribute day = 1
-// on video click, pause video
-
 // Gets and sets the height of the window, resets if video or shop
 function setHeight() {
   let pageWidth = $('.projects').innerWidth() + ($(window).width()*8/10) - 220;
-  console.log($(window).width());
-  console.log("pageWidth " + pageWidth)
   $('body').css("height", pageWidth);
   $('body.video-page').css("height","100vh");
   let shopHeight = $('.shop-internal').height();
   $('body.shop-page').css("height",shopHeight);
 }
 
+function isElementInViewport(el) {
+  var rect = el[0].getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document. documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document. documentElement.clientWidth)
+  );
+}
+
 let pageOffset = 0;
+let left = 0;
 
 // When the user scrolls, move the projects div left
 $(document).on("scroll", function() {
   // If window is > 800px, do this, otherwise user scrolls normally
   if ($(window).width() > 800) {
-    let left;
-
     if ($('body').hasClass('project-page')) {
 
       let scrollTop = window.pageYOffset;
       var bottom =  20 + scrollTop
       $('.selected .project-overview').css("bottom", bottom)
+
+      checkVideosPlaying();
 
     } else if ($('body').hasClass('video-page')) {
       console.log('chillin')
@@ -53,11 +58,8 @@ $(document).on("scroll", function() {
     } else {
       // scroll behavior
       var scrollTop = pageOffset + $(document).scrollTop();
-      // console.log("ideal " + scrollTop);
-      // console.log("actual " + $(document).scrollTop());
 
-      console.log(scrollTop)
-
+      checkVideosPlaying();
 
       left = -1 * scrollTop
       $(".projects").css("left", left)
@@ -65,26 +67,158 @@ $(document).on("scroll", function() {
       var introLeft = -1 * scrollTop * 0.05
       $(".introduction").css("left", introLeft)
 
-      // add so you can also scroll horizontally
-
-      // line on links
-      var projectWidth = $(".project").width();
-      var linkWidth = $('.project-links').width();
+      // // line on links
+      // var projectWidth = $(".project").width();
+      // var linkWidth = $('.project-links').width();
       // for each project width, scroll 1/15 of link Width
-      // don't start until
-      var lineLeft = ( $(window).width()/ -15 ) + (scrollTop / 15 ) - (projectWidth/15);
+      // var lineLeft = ( $(window).width()/ -15 ) + (scrollTop / 15 ) - (projectWidth/15);
       // console.log(lineLeft);
-      if (lineLeft > 0) {
-        $('.background-line').css("left", lineLeft)
-      }
+      // if (lineLeft > 0) {
+      //   $('.background-line').css("left", lineLeft)
+      // }
     }
-    // video play behavior
-    // if (left > 200 && left < 1000) {
-    //
-    // }
-
   }
 })
+
+let day1playing=0;
+let day2playing=0;
+let day3playing=0;
+let day4playing=0;
+let day5playing=0;
+let day6playing=0;
+let day7playing=0;
+let day8playing=0;
+let day9playing=0;
+let day10playing=0;
+let day11playing=0;
+let day12playing=0;
+let day13playing=0;
+let day14playing=0;
+let day15playing=0;
+
+const vidday1 = document.getElementById("vidday1");
+const vidday2 = document.getElementById("vidday2");
+const vidday3 = document.getElementById("vidday3");
+const vidday4 = document.getElementById("vidday4");
+const vidday5 = document.getElementById("vidday5");
+const vidday6 = document.getElementById("vidday6");
+const vidday7 = document.getElementById("vidday7");
+const vidday8 = document.getElementById("vidday8");
+const vidday9 = document.getElementById("vidday9");
+const vidday10 = document.getElementById("vidday10");
+const vidday11 = document.getElementById("vidday11");
+const vidday12 = document.getElementById("vidday12");
+const vidday13 = document.getElementById("vidday13");
+const vidday14 = document.getElementById("vidday14");
+const vidday15 = document.getElementById("vidday15");
+
+function checkVideosPlaying() {
+  if(isElementInViewport($("#video_day1")) && (day1playing==0)) {
+    vidday1.play();
+    day1playing=1;
+  } else if (!isElementInViewport($("#video_day1")) && (day1playing==1)) {
+    vidday1.pause();
+    day1playing=0;
+  }
+  if(isElementInViewport($("#video_day2")) && (day2playing==0)) {
+    vidday2.play();
+    day2playing=1;
+  } else if (!isElementInViewport($("#video_day2")) && (day2playing==1)) {
+    vidday2.pause();
+    day2playing=0;
+  }
+  if(isElementInViewport($("#video_day3")) && (day3playing==0)) {
+    vidday3.play();
+    day3playing=1;
+  } else if (!isElementInViewport($("#video_day3")) && (day3playing==1)) {
+    vidday3.pause();
+    day3playing=0;
+  }
+  if(isElementInViewport($("#video_day4")) && (day4playing==0)) {
+    vidday4.play();
+    day4playing=1;
+  } else if (!isElementInViewport($("#video_day4")) && (day4playing==1)) {
+    vidday4.pause();
+    day4playing=0;
+  }
+  if(isElementInViewport($("#video_day5")) && (day5playing==0)) {
+    vidday5.play();
+    day5playing=1;
+  } else if (!isElementInViewport($("#video_day5")) && (day5playing==1)) {
+    vidday5.pause();
+    day5playing=0;
+  }
+  if(isElementInViewport($("#video_day6")) && (day6playing==0)) {
+    vidday6.play();
+    day6playing=1;
+  } else if (!isElementInViewport($("#video_day5")) && (day6playing==1)) {
+    vidday6.pause();
+    day6playing=0;
+  }
+  if(isElementInViewport($("#video_day7")) && (day7playing==0)) {
+    vidday7.play();
+    day7playing=1;
+  } else if (!isElementInViewport($("#video_day7")) && (day7playing==1)) {
+    vidday7.pause();
+    day7playing=0;
+  }
+  if(isElementInViewport($("#video_day7")) && (day8playing==0)) {
+    vidday8.play();
+    day8playing=1;
+  } else if (!isElementInViewport($("#video_day8")) && (day8playing==1)) {
+    vidday8.pause();
+    day8playing=0;
+  }
+  if(isElementInViewport($("#video_day9")) && (day9playing==0)) {
+    vidday9.play();
+    day9playing=1;
+  } else if (!isElementInViewport($("#video_day9")) && (day9playing==1)) {
+    vidday9.pause();
+    day9playing=0;
+  }
+  if(isElementInViewport($("#video_day10")) && (day10playing==0)) {
+    vidday10.play();
+    day10playing=1;
+  } else if (!isElementInViewport($("#video_day10")) && (day10playing==1)) {
+    vidday10.pause();
+    day10playing=0;
+  }
+  if(isElementInViewport($("#video_day11")) && (day11playing==0)) {
+    vidday11.play();
+    day11playing=1;
+  } else if (!isElementInViewport($("#video_day11")) && (day11playing==1)) {
+    vidday11.pause();
+    day11playing=0;
+  }
+  if(isElementInViewport($("#video_day12")) && (day12playing==0)) {
+    vidday12.play();
+    day12playing=1;
+  } else if (!isElementInViewport($("#video_day12")) && (day12playing==1)) {
+    vidday12.pause();
+    day12playing=0;
+  }
+  if(isElementInViewport($("#video_day13")) && (day13playing==0)) {
+    vidday13.play();
+    day13playing=1;
+  } else if (!isElementInViewport($("#video_day13")) && (day13playing==1)) {
+    vidday13.pause();
+    day13playing=0;
+  }
+  if(isElementInViewport($("#video_day14")) && (day14playing==0)) {
+    vidday14.play();
+    day14playing=1;
+  } else if (!isElementInViewport($("#video_day14")) && (day14playing==1)) {
+    vidday14.pause();
+    day14playing=0;
+  }
+  if(isElementInViewport($("#video_day15")) && (day15playing==0)) {
+    vidday15.play();
+    day15playing=1;
+  } else if (!isElementInViewport($("#video_day15")) && (day15playing==1)) {
+    vidday15.pause();
+    day15playing=0;
+  }
+}
 
 function ajaxAction (data, day, folder, selectedProject) {
   pageOffset = 0;
@@ -148,12 +282,6 @@ $('.project-links a').on("click", function() {
 
     }
   })
-})
-
-// TODO fix
-$('.projwest-overview-vid').on("click", function() {
-  console.log('hey you clicked')
-  cleanProjectState();
 })
 
 function cleanProjectState() {
@@ -276,14 +404,6 @@ function setProjectPosition(day) {
   }
 }
 
-$.fn.scrollView = function () {
-  return this.each(function () {
-    $('html, body').animate({
-      scrollTop: $(this).offset().top
-    }, 1000);
-  });
-}
-
 $('.play-link').on('click', function(){
   event.preventDefault()
 
@@ -314,11 +434,8 @@ $('.shop-link').on('click', function(){
     url: href,
     success: function (data) {
 
-      // $(".collapse").attr("day", 0);
-
       $('body').addClass('shop-page')
       window.history.pushState(null, null, name);
-      // console.log(data)
       let data3 = $(data);
 
       let shopItems = data3.filter(".page-shop-container").html()
@@ -331,51 +448,36 @@ $('.shop-link').on('click', function(){
   })
 })
 
-$('.project-overview-vid video').each(function(){
-    if ($(this).is(":in-viewport")) {
-        $(this)[0].play();
-    } else {
-        $(this)[0].pause();
-    }
+$('.team-link').on('click', function(){
+  event.preventDefault()
+  let fixedLeftValue;
+  const windowWidth = $(window).width();
+  console.log('test')
+
+  if (windowWidth > 2399) {
+    fixedLeftValue = ((16 * 1400) + (windowWidth * 0.8)) * -1
+  } else if (windowWidth > 2000) {
+    fixedLeftValue = ((16 * (windowWidth * 0.5)) + (windowWidth * 0.8)) * -1
+  } else {
+    fixedLeftValue = ((16 * (windowWidth * 0.5)) + (windowWidth * 0.8)) * -1
+  }
+  console.log(fixedLeftValue)
+
+  window.scrollTo(0,fixedLeftValue)
+
+  $(".projects").css("left", fixedLeftValue)
+  $(".projects").addClass("leftTransition").delay(600).queue(function(next){
+      $(this).removeClass("leftTransition");
+      next();
+  });
+})
+
+// TODO fix
+$('.projwest-overview-vid').on("click", function() {
+  console.log('hey you clicked')
+  cleanProjectState();
 })
 
 $( "body" ).on( "click", ".projwest-overview-vid", function( event ) {
   console.log('test');
 })
-// function change(state) {
-//     if(state === null) { // initial page
-//         $("div").text("Original");
-//     } else { // page added with pushState
-//         $("div").text(state.url);
-//     }
-// }
-//
-// $(window).on("popstate", function(e) {
-//     change(e.originalEvent.state);
-// });
-//
-// (function(original) { // overwrite history.pushState so that it also calls
-//                       // the change function when called
-//     history.pushState = function(state) {
-//         change(state);
-//         return original.apply(this, arguments);
-//     };
-// })(history.pushState);
-
-var ticking = false;
-var lastScrollLeft = 0;
-$(window).scroll(function() {
-    if (!ticking) {
-        window.requestAnimationFrame(function() {
-
-            var documentScrollLeft = $(document).scrollLeft();
-            if (lastScrollLeft != documentScrollLeft) {
-                console.log('scroll x');
-                lastScrollLeft = documentScrollLeft;
-            }
-
-            ticking = false;
-        });
-        ticking = true;
-    }
-});
