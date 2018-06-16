@@ -1,0 +1,68 @@
+@import _variables.sass
+
+.f-p
+  font-family: $font-primary
+  font-weight: 300
+
+.f-s
+  font-family: $font-secondary
+
+.f-a
+  font-family: $font-arrow
+
+.fs-xl
+  font-size: 64px
+  line-height: 64px
+  @media screen and (max-width: $break-small)
+    font-size: 42px
+    line-height: 42px
+
+.fs-l
+  font-size: 42px
+  @media screen and (max-width: $break-small)
+    font-size: 32px
+    line-height: 32px
+
+.fs-m
+  font-size: 24px
+  line-height: 24px
+  @media screen and (max-width: $break-small)
+    font-size: 22px
+    line-height: 22px
+
+.fs-s
+  font-size: 16px
+
+.fs-xs
+  font-size: 14px
+
+.t-u
+  text-transform: uppercase
+  letter-spacing: 0.2em
+
+
+$mbvalues: 4 8 12 16 20 24 30 60
+
+@each $i in $mbvalues
+  .mb-#{$i}
+    margin-bottom: #{$i}px
+
+.leftTransition
+  transition: left 600ms
+
+.topTransition
+  transition: top 600ms
+
+
+// Grid
+@for $i from 1 through 24
+  .grid-#{$i}-24
+    width: calc(#{$i}/24 * 100% - 10px) !important
+
+@for $i from 1 through 23
+  .grid-p-#{$i}
+    margin-left: calc(#{$i}/24 * 100vw - 10px)
+
+.hide-on-tablet
+  @media screen and (max-width: 1180px)
+    display: none
