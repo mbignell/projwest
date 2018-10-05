@@ -333,11 +333,13 @@ function collapseProject(currentDay) {
 
 // Top Collapse Link
 $('.collapse').on("click", function(event) {
+  event.preventDefault();
   let currentDay = $(this).attr("day");
   collapseProject(currentDay)
 })
 // Bottom area collapse link, added dynamically
 $( ".project" ).on( "click", ".collapse", function( event ) {
+  event.preventDefault();
   let currentDay = $(this).attr("day");
   collapseProject(currentDay)
 });
@@ -447,6 +449,22 @@ $('.shop-link').on('click', function(){
     }
   })
 })
+
+var expect = require('chai').expect
+
+  describe('clone', function () {
+      var clone = require('./clone.js')
+      it('some description string', function () {
+      let carColors = {
+        car1: 1,
+        car2: 2
+      }
+      clone(carColors);
+        // YOUR CODE HERE
+        expect({car1: 1, car2: 2}).to.eql({car1: 1, car2: 2});
+    });
+  })
+
 
 $('.team-link').on('click', function(){
   event.preventDefault()

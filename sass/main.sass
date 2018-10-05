@@ -49,7 +49,7 @@ header .logo
       width: 17px
       position: absolute
       left: 0px
-      top: 2px
+      top: 12px
     &:hover
       border-bottom: 1px solid white
 
@@ -62,23 +62,25 @@ header .logo
   z-index: 5
 
 .project
-  padding: 40px
   height: 100vh
   width: 50vw
   max-width: 1400px
-  background: black
-  color: white
+  // background: black
+  // color: white
+  background: #f4f4f7
+  color: black
   position: relative
   display: flex
   flex-direction: column
   -webkit-transition: width 0.8s cubic-bezier(0.075, 0.82, 0.165, 1)
-  transition: width 0.8s cubic-bezier(0.075, 0.82, 0.165, 1)
+  transition: width 0.8s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.2s
 
   img
     width: 100%
 
   &:hover
     cursor: pointer
+    background: #ffffff
     .arrow
       margin-top: 20px
 
@@ -90,17 +92,18 @@ header .logo
       left: 0
       bottom: -6px
       height: 1px
-      background-color: white
+      // background-color: white
+      background-color: black
       width: 0
       transition: width .4s
-  &:nth-of-type(2n + 1)
-    background: white
-    color: black
-    h2:after
-      background-color: black
-    .bottom-links a
-      background: #f8f8f8
-      color: black
+  // &:nth-of-type(2n + 1)
+  //   background: white
+  //   color: black
+  //   h2:after
+  //     background-color: black
+  //   .bottom-links a
+  //     background: #f8f8f8
+  //     color: black
 
   &.selected
     width: 90vw
@@ -108,25 +111,24 @@ header .logo
     overflow-y: scroll
     max-width: 1800px
     .project-overview-vid
-      height: calc(100vh - 200px)
+      height: calc(100vh - 260px)
       max-height: none
     .arrow
       height: 0
       font-size: 0
-    .caption
-      padding-left: 20px
 
 .project-overview
   position: absolute
-  bottom: 20px
-  width: calc(100% - 80px)
+  top: 0
+  width: 100%
+  h2
+    margin-bottom: 30px
 
 .project-overview-vid
-  height: calc(50vw - 80px)
-  max-height: 480px
+  height: calc(100vh - 260px)
   overflow: hidden
-  // background: rgba(255,255,255,0.1)
   // TO DO : loading background?
+  background: black
   position: relative
   transition: height 600ms
   video
@@ -141,6 +143,7 @@ header .logo
       width: 100%
       height: auto
 .project.selected
+  background: white
   .project-overview-vid
     video
       width: auto
@@ -149,11 +152,12 @@ header .logo
       min-height: 100%
 
 .caption
-  height: 200px
-  margin-top: 20px
+  height: 260px
+  margin-top: 30px
   max-width: 700px
   width: 100%
   transition: padding 600ms
+  padding: 0 40px
 
 .arrow
   font-family: $font-arrow
@@ -284,14 +288,14 @@ header .logo
   position: absolute
   top: 0
   padding-top: calc(100vh - 60px)
-  width: calc(90vw - 80px)
+  // width: calc(90vw - 80px)
   img
     margin-bottom: 16px
     height: auto
   p
     margin-bottom: 24px
     max-width: 700px
-    padding-left: 20px
+    padding-left: 40px
     &.thanks
       background: rgba(190, 228, 221, 0.4)
       padding-top: 10px
@@ -305,12 +309,15 @@ header .logo
     max-width: 700px
     margin-bottom: 24px
     margin-top: 10px
+  h2, h3, p
+    padding-left: 40px
 
 .bottom-links
   display: flex
   justify-content: space-between
   margin-top: 80px
-  margin-bottom: 40px
+  margin-bottom: 73px
+  padding: 0 40px
   a
     &:nth-of-type(1)
       width: calc(2/5 * 100% - 20px)
@@ -329,8 +336,8 @@ header .logo
         width: calc(2/3 * 100% - 20px)
     padding: 30px 40px
     text-decoration: none
-    color: white
-    background: rgba(255,255,255,0.1)
+    color: black
+    background: #f8f8f8
     &:hover
       background: #333
 
